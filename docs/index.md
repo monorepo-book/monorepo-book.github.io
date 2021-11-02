@@ -63,6 +63,6 @@ In alphabetical order by GitHub handle, they include:
 
 All the stuff that's right is from these folks 👆 but [I'll](https://github.com/vtbassmatt) claim the errors.
 The book represents the distillate of many person-years of collected wisdom and experience from a variety of people at GitHub, Microsoft, and beyond.
-It's not perfect or complete, though, and we welcome _your_ contributions!
+It's not perfect or complete, though, and [we welcome _your_ contributions](https://github.com/monorepo-book/monorepo-book.github.io)!
 
 This work © GitHub, Inc. and contributors.
