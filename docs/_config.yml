@@ -1,0 +1,9 @@
+theme: jekyll-theme-cayman
+title: Maintaining a Monorepo
+show_downloads: false
+defaults:
+  -
+    scope:
+      path: "" # all files
+    values:
+      layout: "topic"
