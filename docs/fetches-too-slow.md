@@ -53,6 +53,7 @@ When you instead commit a change to `file2.txt`, Git has to track six new object
 In a simple example like this, it makes no difference whether Git creates 4 or 6 objects.
 But if on average most of your changes are nested 6-10 levels deep, over time, that drives a lot more growth of the repo than having changes nested 1-5 levels deep.
 
-- Consider shallowing your directory structure.
-But, beware of going [too deep](maintenance-failure.md#deepen-your-directory-structure).
-- Consider making less granular commits, changing many deeply-nested files at once instead of a series of smaller commits.
+- First, consider making less granular commits, changing many deeply-nested files at once instead of a series of smaller commits.
+- If you have unnecessary layers of directories, consider shallowing your directory structure.
+But, be aware that going [too shallow](maintenance-failure.md#deepen-your-directory-structure) will cause problems than it resolves.
+This guidance is primarily for pathological depth, for example, putting each file several layers deep with no siblings for many levels.

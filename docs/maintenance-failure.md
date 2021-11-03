@@ -34,8 +34,9 @@ If anything, anywhere beneath a `tree` gets changed, that `tree` must change as 
 Wide `tree`s tend to [deltafy](glossary.md#packfile) well so they take up little space on disk, which can mask other issues.
 Tree traversal, as when running maintenance, then has to un-delta (expand) and process those huge trees, which takes time.
 
-- Consider deepening your directory structure.
-But, beware of going [too shallow](fetches-too-slow.md#shallow-your-directory-structure).
+- Deepen your directory structure.
+Don't go deeper than necessary, since that can [trigger other issues](fetches-too-slow.md#shallow-your-directory-structure).
+But in practice, deepening the tree with smaller directories is a good tradeoff.
 - Consider making less granular commits, changing many co-located files at once instead of a series of smaller commits.
 
 ### Eliminate unreachable objects
