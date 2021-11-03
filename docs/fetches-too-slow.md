@@ -42,17 +42,17 @@ For example, consider:
                |- file2.txt
 ```
 
-When you commit a change to `file1.txt`, Git has to track three new objects:
+When you commit a change to `file1.txt`, Git has to track four new objects:
 - the new `blob` for `file1.txt`
-- the new `tree` for `dir1`
+- two new `tree`s for `dir1` and the root directory
 - the new commit containing the new `tree` for `dir1` and the old `tree` for `dir2`
 
-When you instead commit a change to `file2.txt`, Git has to track five new objects:
+When you instead commit a change to `file2.txt`, Git has to track six new objects:
 - the new `blob` for `file2.txt`
-- the three new `tree`s for `dir4`, `dir3`, and `dir2`
+- four new `tree`s for `dir4`, `dir3`, `dir2`, and the root
 - the new commit containing the old `tree` for `dir1` and the new `tree` for `dir2`
 
-In a simple example like this, it makes no difference whether Git creates 3 or 5 objects.
+In a simple example like this, it makes no difference whether Git creates 4 or 6 objects.
 But if on average most of your changes are nested 6-10 levels deep, over time, that drives a lot more growth of the repo than having changes nested 1-5 levels deep.
 
 - Consider shallowing your directory structure.
