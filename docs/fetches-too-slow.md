@@ -25,24 +25,9 @@ Developer machines typically have network access most of the time, so Git object
 If a developer runs `git maintenance start` in their repository, this enables several background maintenance tasks, including [the `prefetch` task](https://git-scm.com/docs/git-maintenance#Documentation/git-maintenance.txt-prefetch).
 By default, this task fetches new objects from the origin server on an hourly basis, leading to the developer not waiting as long to get the latest refs during their foreground `git fetch` and `git pull` commands.
 
-### Deepen your directory structure
-
-Each version of a directory in Git is tracked by a `tree` object.
-Each version of a file is tracked by a `blob`.
-All other things equal, very wide directories (many entries) may bloat your repository quicker than narrow directories.
-
-Why is this?
-If anything, anywhere beneath a `tree` gets changed, that `tree` must change as well.
-Wide `tree`s tend to [deltafy](glossary.md#packfile) well so they take up little space on disk, which can mask other issues.
-Tree traversal, as when running maintenance, then has to un-delta (expand) and process those huge trees, which can lead to problems [during maintenance](maintenance-failure.md).
-
-- Consider deepening your directory structure.
-But, beware of going [too shallow](#shallow-your-directory-structure).
-- Consider making less granular commits, changing many co-located files at once instead of a series of smaller commits.
-
 ### Shallow your directory structure
 
-Perversely, a deeply-nested directory structure can _also_ grow quickly.
+A deeply-nested directory structure can bloat a repo more quickly, and sometimes in ways that don't [deltafy](glossary.md#packfile) well.
 For example, consider:
 
 ```
@@ -69,5 +54,5 @@ In a simple example like this, it makes no difference whether Git creates 4 or 6
 But if on average most of your changes are nested 6-10 levels deep, over time, that drives a lot more growth of the repo than having changes nested 1-5 levels deep.
 
 - Consider shallowing your directory structure.
-But, beware of going [too deep](#deepen-your-directory-structure).
+But, beware of going [too deep](maintenance-failure.md#deepen-your-directory-structure).
 - Consider making less granular commits, changing many deeply-nested files at once instead of a series of smaller commits.

@@ -23,6 +23,21 @@ Using a Git repo as a document database can trigger similar poor performance.
 For example, storing a huge number of JSON files can be problematic.
 Even when their contents change, they're often structurally similar and very large.
 
+### Deepen your directory structure
+
+Each version of a directory in Git is tracked by a `tree` object.
+Each version of a file is tracked by a `blob`.
+All other things equal, very wide directories (many entries) may bloat your repository quicker than narrow directories.
+
+Why is this?
+If anything, anywhere beneath a `tree` gets changed, that `tree` must change as well.
+Wide `tree`s tend to [deltafy](glossary.md#packfile) well so they take up little space on disk, which can mask other issues.
+Tree traversal, as when running maintenance, then has to un-delta (expand) and process those huge trees, which takes time.
+
+- Consider deepening your directory structure.
+But, beware of going [too shallow](fetches-too-slow.md#shallow-your-directory-structure).
+- Consider making less granular commits, changing many co-located files at once instead of a series of smaller commits.
+
 ### Eliminate unreachable objects
 
 Every object in the repository consumes around 150 bytes of heap memory during repacking.
