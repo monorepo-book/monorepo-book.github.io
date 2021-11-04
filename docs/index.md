@@ -54,6 +54,7 @@ In alphabetical order by GitHub handle, they include:
 - [@bk2204](https://github.com/bk2204)
 - [@derrickstolee](https://github.com/derrickstolee)
 - [@dkunkler](https://github.com/dkunkler)
+- [@larsxschneider](https://github.com/larsxschneider)
 - [@mhagger](https://github.com/mhagger)
 - [@primetheus](https://github.com/primetheus)
 - [@terrorobe](https://github.com/terrorobe)
