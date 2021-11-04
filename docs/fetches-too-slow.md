@@ -55,5 +55,5 @@ But if on average most of your changes are nested 6-10 levels deep, over time, t
 
 - First, consider making less granular commits, changing many deeply-nested files at once instead of a series of smaller commits.
 - If you have unnecessary layers of directories, consider shallowing your directory structure.
-But, be aware that going [too shallow](maintenance-failure.md#deepen-your-directory-structure) will cause problems than it resolves.
+But, be aware that going [too shallow](maintenance-failure.md#deepen-your-directory-structure) will cause more problems than it resolves.
 This guidance is primarily for pathological depth, for example, putting each file several layers deep with no siblings for many levels.
