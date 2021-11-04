@@ -23,6 +23,58 @@ Using a Git repo as a document database can trigger similar poor performance.
 For example, storing a huge number of JSON files can be problematic.
 Even when their contents change, they're often structurally similar and very large.
 
+### Deepen your directory structure
+
+Each version of a directory in Git is tracked by a `tree` object.
+Each version of a file is tracked by a `blob`.
+All other things equal, very wide directories (many entries) may bloat your repository quicker than narrow directories.
+
+Why is this?
+Consider a structure like:
+
+```
+|- src
+|    |- file0000.txt
+|    |- file0001.txt
+|    |- file0002.txt
+|    ⋮
+|    |- file4999.txt
+```
+
+Each commit which changes any file will build a new tree for `src`.
+A tree with 5000 entries is around 200 kB and will [deltafy](glossary.md#packfile) well.
+This means it won't take up much disk space, but it will dramatically slow down traversal operations in maintenance.
+
+If you instead shard those files into several directories:
+
+```
+|- src
+|    |- dir00
+|    |    |- file0000.txt
+|    |    |- file0001.txt
+|    |    |- file0002.txt
+|    |    ⋮
+|    |    |- file0099.txt
+|    |- dir01
+|    |    |- file0100.txt
+|    |    ⋮
+|    |    |- file0199.txt
+|    ⋮
+|    |- dir49
+|         |- file4900.txt
+|         ⋮
+|         |- file4999.txt
+```
+
+Then modifying a single file will require one new 50-entry `tree` and one new 100-entry `tree`.
+In aggregate, and especially over time, this will result in much less new data being created.
+It will also help keep traversal operations fast.
+
+- Deepen your directory structure.
+Don't go deeper than necessary, since that can [trigger other issues](fetches-too-slow.md#shallow-your-directory-structure).
+But in practice, deepening the tree with smaller directories is a good tradeoff.
+- Consider making less granular commits, changing many co-located files at once instead of a series of smaller commits.
+
 ### Eliminate unreachable objects
 
 Every object in the repository consumes around 150 bytes of heap memory during repacking.
