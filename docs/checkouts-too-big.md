@@ -21,4 +21,4 @@ Symptoms:
 
 - Turn off virus scanning for your working directory.
 - Upgrade developer workstations to fast SSDs.
-- Once you've upgraded to SSDs, set [`checkout.workers`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-checkoutworkers) to a negative value in order to speed things up.
+- Once you've upgraded to SSDs, set [`checkout.workers`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-checkoutworkers) to `-1` in order to have Git choose the optimal number of parallel workers for your system.
