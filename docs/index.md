@@ -25,6 +25,7 @@ This site (or "book" as I've been calling it) will help you understand the natur
 - [Git's dimensions of scale](dimensions.md)
 - [How to detect and analyze scale problems](detection.md)
 - [How to resolve scale problems](solutions.md)
+- [Working with Git at scale](workflows.md)
 - [Appendix: Glossary](glossary.md)
 - [Appendix: Additional resources](resources.md)
 
