@@ -18,4 +18,5 @@ We'll assume that's not on the table, since you're looking into improving monore
 - [Server CPU usage is high](server-cpu-high.md)
 
 If you aren't sure which of these is your problem, try using the [tools and methods](detection.md) mentioned elsewhere.
+After you've resolved any detected problems, take a wider view of your [workflows](workflows.md) to make sure they're compatible with monorepos.
 Also, be sure to check out the additional [resources](resources.md) we've linked to.
