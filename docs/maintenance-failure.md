@@ -84,9 +84,9 @@ For objects still reachable in history, there's little recourse other than trunc
 Unreachable objects represent "dead weight" and can be eliminated with a pristine garbage collection (GC).
 On versions of GHES before 3.3, you should contact GitHub Support first for help deciding if this operation is right for your repo.
 Certain data shapes can cause a pristine GC to make things dramatically _worse_ rather than better.
-<!-- !! Uncomment when GHES 3.3 ships. !!
+
 If you're on GHES 3.3 or later, this is safe due to the introduction of a new feature in Git.
-In a GHE console, run `ghe-repo-gc --prune owner/repo` (where `owner/repo` is the repository you want to GC). -->
+In a GHE console, run `ghe-repo-gc --prune owner/repo` (where `owner/repo` is the repository you want to GC).
 
 ### Manually repack the repository
 
