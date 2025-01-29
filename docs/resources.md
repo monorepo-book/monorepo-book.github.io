@@ -21,3 +21,7 @@ If you ever want to see what's happening under the covers with Git, you're likel
 - [`GIT_CURL_VERBOSE=1`](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables#_networking) for network operations
 - [`GIT_TRACE_PACKET=1`](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables#_debugging) for packet-level tracing
 - [`GIT_SSH_COMMAND="ssh -vvv"`](https://git-scm.com/docs/git-config#Documentation/git-config.txt-coresshCommand) for SSH tracing (you can use 1, 2, or 3 `v`s depending on how verbose you want the output)
+
+### Engineering systems guidance
+
+- [GitHub Well-Architected](https://wellarchitected.github.com/library/architecture/)
