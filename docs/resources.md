@@ -8,6 +8,7 @@
 - [Bring your monorepo down to size with sparse checkout](https://github.blog/2020-01-17-bring-your-monorepo-down-to-size-with-sparse-checkout/)
 - [A deep dive into Git performance using Trace2](https://devblogs.microsoft.com/devops/a-deep-dive-into-git-performance-using-trace2/)
 - [Large Git repositories](https://larsxschneider.github.io/2016/09/21/large-git-repos)
+- [The Ingredients of a Productive Monorepo](https://blog.swgillespie.me/posts/monorepo-ingredients/)
 
 ### Tools
 
